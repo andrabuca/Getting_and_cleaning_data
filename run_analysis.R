@@ -17,7 +17,7 @@ activities = read.table('activity_labels.txt')
 for (i in 1:6) {
   y_labels[y==i] = as.character(activities[i,'V2'])
 }
-names(mean_std) = features[mean_std_features,'V2']
+names(mean_std) = features[mean_std_feat,'V2']
 mean_std$label = y_labels
 
 
@@ -37,4 +37,4 @@ for (i in 1:6) {
 }
 final = data.frame(final)
 names(final) = c('Activity','Subject','Variable','Average')
-write.csv(final,'tidy_set.csv')
+write.table(final, "tidy_set.txt", sep="\t")
